@@ -61,7 +61,9 @@
     .section-label { font-family: 'Kalam', cursive; font-size: 13px; color: var(--dourado); letter-spacing: .1em; text-transform: uppercase; text-align: center; margin-bottom: 12px; }
     .section h2 { font-family: 'Kalam', cursive; font-size: clamp(26px, 4vw, 38px); color: var(--roxo); text-align: center; margin-bottom: 48px; line-height: 1.2; }
 
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    @media (max-width: 900px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .cards { grid-template-columns: 1fr; } }
     .card { background: var(--branco); border-radius: 16px; padding: 28px 24px; border-top: 4px solid var(--roxo); box-shadow: 0 4px 20px rgba(123,45,139,.08); transition: transform .2s, box-shadow .2s; }
     .card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(123,45,139,.14); }
     .card .icone { font-size: 32px; margin-bottom: 14px; }
@@ -119,7 +121,7 @@
     </div>
     <div class="hero-badge">🎁 100% gratuito</div>
     <h1>Descubra para onde vai<br>o seu <em>dinheiro</em></h1>
-    <p>Preencha em 15 minutos e veja exatamente quais gastos estão consumindo sua renda — sem julgamento, sem complicação.</p>
+    <p>Preencha em 10 minutos e veja exatamente quais gastos estão consumindo sua renda — sem julgamento, sem complicação.</p>
 
     <div class="form-wrap">
       <div class="form-card">
@@ -134,6 +136,10 @@
             <label for="email">Seu melhor e-mail</label>
             <input type="email" id="email" placeholder="seuemail@gmail.com" required>
           </div>
+          <div class="field">
+            <label for="whatsapp">WhatsApp <span style="font-weight:400;color:#BBA8CC">(opcional)</span></label>
+            <input type="tel" id="whatsapp" placeholder="(11) 99999-9999">
+          </div>
           <button type="submit" class="btn">✨ Quero meu diagnóstico grátis</button>
           <p class="privacidade">🔒 Sem spam. Seus dados estão seguros.</p>
         </form>
@@ -147,7 +153,7 @@
 
   <section class="section">
     <p class="section-label">O que você vai descobrir</p>
-    <h2>Sua fotografia financeira<br>em 15 minutos</h2>
+    <h2>Sua fotografia financeira<br>em 10 minutos</h2>
     <div class="cards">
       <div class="card"><div class="icone">🔍</div><h3>Seus ralos invisíveis</h3><p>Veja os 5 gastos que mais consomem sua renda — muitas vezes sem você perceber.</p></div>
       <div class="card"><div class="icone">📊</div><h3>% da renda comprometida</h3><p>Descubra quanto da sua renda já está comprometida antes mesmo de você gastar.</p></div>
@@ -171,7 +177,7 @@
 
   <section class="cta-final">
     <h2>Pronta para descobrir<br>seus ralos?</h2>
-    <p>É gratuito, rápido e sem enrolação. Preencha em 15 minutos.</p>
+    <p>É gratuito, rápido e sem enrolação. Preencha em 10 minutos.</p>
     <a href="#" class="btn-cta" onclick="document.querySelector('.hero').scrollIntoView({behavior:'smooth'}); return false;">✨ Quero meu diagnóstico grátis</a>
   </section>
 
@@ -209,8 +215,9 @@
   form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const nome  = document.getElementById('nome').value.trim();
-    const email = document.getElementById('email').value.trim();
+    const nome     = document.getElementById('nome').value.trim();
+    const email    = document.getElementById('email').value.trim();
+    const whatsapp = document.getElementById('whatsapp').value.trim();
 
     if (!nome || !email) {
       alert('Preencha seu nome e e-mail para continuar.');
@@ -225,6 +232,7 @@
     const url = MAILCHIMP_ACTION.replace('/post?', '/post-json?')
       + '&FNAME=' + encodeURIComponent(nome)
       + '&EMAIL=' + encodeURIComponent(email)
+      + '&PHONE=' + encodeURIComponent(whatsapp)
       + '&c=_mc_callback';
 
     window._mc_callback = function() {
