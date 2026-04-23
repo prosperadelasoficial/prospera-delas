@@ -49,7 +49,7 @@
     .btn { width: 100%; padding: 15px; background: var(--roxo); color: var(--branco); border: none; border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; transition: background .2s, transform .15s, box-shadow .2s; margin-top: 8px; }
     .btn:hover { background: var(--roxo-medio); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(123,45,139,.35); }
     .btn:disabled { opacity: .7; cursor: not-allowed; transform: none; }
-    .privacidade { font-size: 12px; color: #AAA; text-align: center; margin-top: 14px; }
+    .privacidade { font-size: 13px; color: var(--roxo); text-align: center; margin-top: 14px; font-weight: 600; }
 
     .social-proof { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; font-size: 13px; color: rgba(255,255,255,.75); }
     .avatares { display: flex; }
@@ -137,11 +137,11 @@
             <input type="email" id="email" placeholder="seuemail@gmail.com" required>
           </div>
           <div class="field">
-            <label for="whatsapp">WhatsApp <span style="font-weight:400;color:#BBA8CC">(opcional)</span></label>
-            <input type="tel" id="whatsapp" placeholder="(11) 99999-9999">
+            <label for="whatsapp">WhatsApp</label>
+            <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" required>
           </div>
           <button type="submit" class="btn">✨ Quero meu diagnóstico grátis</button>
-          <p class="privacidade">🔒 Sem spam. Seus dados estão seguros.</p>
+
         </form>
       </div>
       <div class="social-proof">
@@ -219,8 +219,8 @@
     const email    = document.getElementById('email').value.trim();
     const whatsapp = document.getElementById('whatsapp').value.trim();
 
-    if (!nome || !email) {
-      alert('Preencha seu nome e e-mail para continuar.');
+    if (!nome || !email || !whatsapp) {
+      alert('Preencha todos os campos para continuar.');
       return;
     }
 
