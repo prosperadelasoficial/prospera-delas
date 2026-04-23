@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico Financeiro Gratuito — Prospera Delas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --roxo: #7B2D8B;
+      --roxo-medio: #9B4DAB;
+      --roxo-claro: #F3E8F7;
+      --dourado: #C9A84C;
+      --dourado-claro: #FDF3D8;
+      --branco: #FFFFFF;
+      --cinza: #2D2D2D;
+      --cinza-suave: #F7F4FA;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cinza-suave); color: var(--cinza); overflow-x: hidden; }
+
+    /* HERO */
+    .hero { background: var(--roxo); position: relative; overflow: hidden; padding: 70px 24px 80px; text-align: center; }
+    .hero::before { content: ''; position: absolute; top: -120px; right: -120px; width: 420px; height: 420px; border-radius: 50%; background: rgba(201,168,76,.18); pointer-events: none; }
+    .hero::after  { content: ''; position: absolute; bottom: -80px; left: -80px; width: 280px; height: 280px; border-radius: 50%; background: rgba(255,255,255,.07); pointer-events: none; }
+
+    .logo-marca { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 36px; opacity: 0; animation: fadeUp .6s .1s forwards; }
+    .logo-marca .simbolo { width: 44px; height: 44px; background: var(--dourado); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Kalam', cursive; font-size: 22px; color: var(--branco); }
+    .logo-marca span { font-family: 'Kalam', cursive; font-size: 22px; color: var(--branco); }
+
+    .hero-badge { display: inline-block; background: var(--dourado); color: var(--branco); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 6px 18px; border-radius: 100px; margin-bottom: 24px; opacity: 0; animation: fadeUp .6s .2s forwards; }
+
+    .hero h1 { font-family: 'Kalam', cursive; font-size: clamp(32px, 6vw, 54px); color: var(--branco); line-height: 1.15; max-width: 700px; margin: 0 auto 20px; opacity: 0; animation: fadeUp .6s .3s forwards; }
+    .hero h1 em { font-style: normal; color: var(--dourado); }
+    .hero p { font-size: clamp(16px, 2.5vw, 19px); color: rgba(255,255,255,.85); max-width: 540px; margin: 0 auto 44px; line-height: 1.65; font-weight: 300; opacity: 0; animation: fadeUp .6s .4s forwards; }
+
+    /* FORM */
+    .form-wrap { max-width: 480px; margin: 0 auto; opacity: 0; animation: fadeUp .7s .5s forwards; }
+    .form-card { background: var(--branco); border-radius: 20px; padding: 36px 32px; box-shadow: 0 24px 60px rgba(0,0,0,.22); }
+    .form-card h2 { font-family: 'Kalam', cursive; font-size: 22px; color: var(--roxo); margin-bottom: 8px; text-align: center; }
+    .form-card .sub { font-size: 14px; color: #888; text-align: center; margin-bottom: 24px; }
+    .field { margin-bottom: 16px; }
+    .field label { display: block; font-size: 13px; font-weight: 600; color: var(--roxo); margin-bottom: 6px; }
+    .field input { width: 100%; padding: 13px 16px; border: 1.5px solid #E0D4EC; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--cinza); outline: none; transition: border-color .2s, box-shadow .2s; background: #FDFAFF; }
+    .field input:focus { border-color: var(--roxo); box-shadow: 0 0 0 3px rgba(123,45,139,.12); }
+    .field input::placeholder { color: #BBA8CC; }
+
+    .btn { width: 100%; padding: 15px; background: var(--roxo); color: var(--branco); border: none; border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; transition: background .2s, transform .15s, box-shadow .2s; margin-top: 8px; }
+    .btn:hover { background: var(--roxo-medio); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(123,45,139,.35); }
+    .btn:disabled { opacity: .7; cursor: not-allowed; transform: none; }
+    .privacidade { font-size: 12px; color: #AAA; text-align: center; margin-top: 14px; }
+
+    .social-proof { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; font-size: 13px; color: rgba(255,255,255,.75); }
+    .avatares { display: flex; }
+    .avatares span { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--roxo); margin-left: -8px; font-size: 14px; display: flex; align-items: center; justify-content: center; background: var(--roxo-claro); }
+    .avatares span:first-child { margin-left: 0; }
+
+    /* SEÇÕES */
+    .section { max-width: 860px; margin: 0 auto; padding: 70px 24px; }
+    .section-label { font-family: 'Kalam', cursive; font-size: 13px; color: var(--dourado); letter-spacing: .1em; text-transform: uppercase; text-align: center; margin-bottom: 12px; }
+    .section h2 { font-family: 'Kalam', cursive; font-size: clamp(26px, 4vw, 38px); color: var(--roxo); text-align: center; margin-bottom: 48px; line-height: 1.2; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .card { background: var(--branco); border-radius: 16px; padding: 28px 24px; border-top: 4px solid var(--roxo); box-shadow: 0 4px 20px rgba(123,45,139,.08); transition: transform .2s, box-shadow .2s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(123,45,139,.14); }
+    .card .icone { font-size: 32px; margin-bottom: 14px; }
+    .card h3 { font-size: 16px; font-weight: 600; color: var(--roxo); margin-bottom: 8px; }
+    .card p { font-size: 14px; color: #666; line-height: 1.6; }
+
+    /* PARA QUEM É */
+    .para-quem { background: var(--roxo); padding: 70px 24px; }
+    .para-quem .inner { max-width: 700px; margin: 0 auto; text-align: center; }
+    .para-quem h2 { font-family: 'Kalam', cursive; font-size: clamp(26px, 4vw, 36px); color: var(--branco); margin-bottom: 36px; }
+    .checks { display: flex; flex-direction: column; gap: 14px; text-align: left; max-width: 500px; margin: 0 auto; }
+    .check-item { display: flex; align-items: flex-start; gap: 12px; background: rgba(255,255,255,.08); border-radius: 12px; padding: 14px 18px; }
+    .check-item .ico { font-size: 20px; flex-shrink: 0; }
+    .check-item p { font-size: 15px; color: rgba(255,255,255,.9); line-height: 1.5; }
+
+    /* CTA FINAL */
+    .cta-final { background: var(--dourado-claro); padding: 70px 24px; text-align: center; border-top: 3px solid var(--dourado); }
+    .cta-final h2 { font-family: 'Kalam', cursive; font-size: clamp(26px, 4vw, 38px); color: var(--roxo); margin-bottom: 12px; }
+    .cta-final p { font-size: 16px; color: #666; margin-bottom: 32px; }
+    .btn-cta { display: inline-block; background: var(--roxo); color: var(--branco); padding: 16px 40px; border-radius: 14px; font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 600; text-decoration: none; box-shadow: 0 8px 24px rgba(123,45,139,.3); transition: background .2s, transform .15s; }
+    .btn-cta:hover { background: var(--roxo-medio); transform: translateY(-2px); }
+
+    footer { background: var(--cinza); padding: 28px 24px; text-align: center; }
+    footer p { font-size: 13px; color: #888; }
+    footer a { color: var(--dourado); text-decoration: none; }
+
+    /* PÁGINA OBRIGADO */
+    .obrigado { display: none; min-height: 100vh; background: var(--roxo); align-items: center; justify-content: center; text-align: center; padding: 40px 24px; flex-direction: column; }
+    .obrigado.ativo { display: flex; }
+    .obrigado .check-big { font-size: 72px; margin-bottom: 24px; }
+    .obrigado h1 { font-family: 'Kalam', cursive; font-size: clamp(28px, 5vw, 46px); color: var(--branco); margin-bottom: 16px; }
+    .obrigado > p { font-size: 17px; color: rgba(255,255,255,.8); max-width: 480px; line-height: 1.65; margin-bottom: 36px; }
+    .btn-download { display: inline-flex; align-items: center; gap: 10px; background: var(--dourado); color: var(--branco); padding: 17px 36px; border-radius: 14px; font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; text-decoration: none; box-shadow: 0 8px 28px rgba(0,0,0,.25); transition: transform .2s; }
+    .btn-download:hover { transform: translateY(-2px); }
+    .oferta-box { margin-top: 48px; background: rgba(255,255,255,.1); border-radius: 16px; padding: 28px 32px; max-width: 440px; border: 1px solid rgba(201,168,76,.4); }
+    .oferta-box h3 { font-family: 'Kalam', cursive; font-size: 20px; color: var(--dourado); margin-bottom: 10px; }
+    .oferta-box p { font-size: 15px; color: rgba(255,255,255,.8); margin-bottom: 20px; }
+    .btn-oferta { display: inline-block; background: var(--branco); color: var(--roxo); padding: 13px 28px; border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none; }
+
+    .pagina { display: block; }
+    .pagina.oculta { display: none; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 600px) { .form-card { padding: 28px 20px; } .hero { padding: 50px 20px 60px; } }
+  </style>
+</head>
+<body>
+
+<div class="pagina" id="pagina-principal">
+
+  <section class="hero">
+    <div class="logo-marca">
+      <div class="simbolo">P</div>
+      <span>Prospera Delas</span>
+    </div>
+    <div class="hero-badge">🎁 100% gratuito</div>
+    <h1>Descubra para onde vai<br>o seu <em>dinheiro</em></h1>
+    <p>Preencha em 15 minutos e veja exatamente quais gastos estão consumindo sua renda — sem julgamento, sem complicação.</p>
+
+    <div class="form-wrap">
+      <div class="form-card">
+        <h2>Quero meu diagnóstico!</h2>
+        <p class="sub">Preencha abaixo e receba o link na hora</p>
+        <form id="form-captura" novalidate>
+          <div class="field">
+            <label for="nome">Seu primeiro nome</label>
+            <input type="text" id="nome" placeholder="Ex: Ana" required>
+          </div>
+          <div class="field">
+            <label for="email">Seu melhor e-mail</label>
+            <input type="email" id="email" placeholder="seuemail@gmail.com" required>
+          </div>
+          <button type="submit" class="btn">✨ Quero meu diagnóstico grátis</button>
+          <p class="privacidade">🔒 Sem spam. Seus dados estão seguros.</p>
+        </form>
+      </div>
+      <div class="social-proof">
+        <div class="avatares"><span>👩</span><span>👩</span><span>👩</span></div>
+        <span>Mulheres que já descobriram seus ralos</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">O que você vai descobrir</p>
+    <h2>Sua fotografia financeira<br>em 15 minutos</h2>
+    <div class="cards">
+      <div class="card"><div class="icone">🔍</div><h3>Seus ralos invisíveis</h3><p>Veja os 5 gastos que mais consomem sua renda — muitas vezes sem você perceber.</p></div>
+      <div class="card"><div class="icone">📊</div><h3>% da renda comprometida</h3><p>Descubra quanto da sua renda já está comprometida antes mesmo de você gastar.</p></div>
+      <div class="card"><div class="icone">🎯</div><h3>Onde agir primeiro</h3><p>Saiba exatamente qual categoria cortar primeiro para equilibrar as contas.</p></div>
+      <div class="card"><div class="icone">💜</div><h3>Sem julgamento</h3><p>Uma ferramenta prática, não uma aula. Você preenche, a planilha calcula, você age.</p></div>
+    </div>
+  </section>
+
+  <section class="para-quem">
+    <div class="inner">
+      <p class="section-label">Para quem é</p>
+      <h2>Essa planilha foi feita<br>pra você se...</h2>
+      <div class="checks">
+        <div class="check-item"><span class="ico">💸</span><p>O dinheiro some antes do fim do mês e você não sabe para onde foi</p></div>
+        <div class="check-item"><span class="ico">😰</span><p>Você sente que ganha razoável mas sempre fica no sufoco</p></div>
+        <div class="check-item"><span class="ico">📱</span><p>Tem assinaturas, parcelas e gastos que esqueceu que existiam</p></div>
+        <div class="check-item"><span class="ico">🎯</span><p>Quer organizar as finanças mas não sabe por onde começar</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <h2>Pronta para descobrir<br>seus ralos?</h2>
+    <p>É gratuito, rápido e sem enrolação. Preencha em 15 minutos.</p>
+    <a href="#" class="btn-cta" onclick="document.querySelector('.hero').scrollIntoView({behavior:'smooth'}); return false;">✨ Quero meu diagnóstico grátis</a>
+  </section>
+
+  <footer>
+    <p>© 2026 Prospera Delas · <a href="https://instagram.com/prospera.delas" target="_blank">@prospera.delas</a> · Todos os direitos reservados</p>
+  </footer>
+
+</div>
+
+<!-- PÁGINA OBRIGADO -->
+<div class="obrigado" id="pagina-obrigado">
+  <div class="check-big">🎉</div>
+  <h1>Chegou, <span id="nome-confirmacao">linda</span>!</h1>
+  <p>Sua planilha de diagnóstico está pronta. Clique abaixo para acessar — e não esquece de fazer uma cópia para você no Google Sheets!</p>
+  <!-- ⚠️ SUBSTITUA PELO LINK REAL DA PLANILHA NO GOOGLE DRIVE -->
+  <a href="LINK_DA_PLANILHA_AQUI" class="btn-download" target="_blank">📊 Acessar minha planilha gratuita</a>
+  <div class="oferta-box">
+    <h3>Próximo passo 👇</h3>
+    <p>Agora que você sabe onde estão os ralos, que tal um plano para o ano inteiro? A Planilha Orçamento Pessoal te acompanha mês a mês.</p>
+    <!-- ⚠️ SUBSTITUA PELO LINK DO KIWIFY -->
+    <a href="LINK_KIWIFY_AQUI" class="btn-oferta" target="_blank">Ver Planilha Orçamento — R$ 27</a>
+  </div>
+</div>
+
+<script>
+  // ⚠️ SUBSTITUA PELA URL DE ACTION DO SEU FORMULÁRIO MAILCHIMP
+  // Encontre em: Audience > Signup forms > Embedded forms > copie o action=""
+  const MAILCHIMP_ACTION = 'COLE_AQUI_A_URL_ACTION_DO_MAILCHIMP';
+
+  const form = document.getElementById('form-captura');
+  const paginaPrincipal = document.getElementById('pagina-principal');
+  const paginaObrigado  = document.getElementById('pagina-obrigado');
+  const nomeConfirmacao = document.getElementById('nome-confirmacao');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const nome  = document.getElementById('nome').value.trim();
+    const email = document.getElementById('email').value.trim();
+
+    if (!nome || !email) {
+      alert('Preencha seu nome e e-mail para continuar.');
+      return;
+    }
+
+    const btn = form.querySelector('.btn');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+
+    // Envio para Mailchimp via JSONP (sem erro de CORS)
+    const url = MAILCHIMP_ACTION.replace('/post?', '/post-json?')
+      + '&FNAME=' + encodeURIComponent(nome)
+      + '&EMAIL=' + encodeURIComponent(email)
+      + '&c=_mc_callback';
+
+    window._mc_callback = function() {
+      mostrarObrigado(nome);
+    };
+
+    const script = document.createElement('script');
+    script.src = url;
+    script.onerror = function() { mostrarObrigado(nome); };
+    document.body.appendChild(script);
+
+    // Fallback: se não responder em 4s, mostra obrigado mesmo assim
+    setTimeout(function() { mostrarObrigado(nome); }, 4000);
+  });
+
+  function mostrarObrigado(nome) {
+    nomeConfirmacao.textContent = nome.split(' ')[0];
+    paginaPrincipal.classList.add('oculta');
+    paginaObrigado.classList.add('ativo');
+    window.scrollTo(0, 0);
+  }
+</script>
+
+</body>
+</html>
