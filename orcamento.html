@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planilha Orçamento Pessoal Feminino 2026 — Prospera Delas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --roxo: #7B2D8B;
+      --roxo-medio: #9B4DAB;
+      --roxo-claro: #F3E8F7;
+      --dourado: #C9A84C;
+      --dourado-claro: #FDF3D8;
+      --branco: #FFFFFF;
+      --cinza: #2D2D2D;
+      --cinza-suave: #F7F4FA;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cinza-suave); color: var(--cinza); overflow-x: hidden; }
+
+    /* ── HERO ── */
+    .hero { background: var(--roxo); position: relative; overflow: hidden; padding: 64px 24px 72px; text-align: center; }
+    .hero::before { content:''; position:absolute; top:-120px; right:-120px; width:420px; height:420px; border-radius:50%; background:rgba(201,168,76,.18); pointer-events:none; }
+    .hero::after  { content:''; position:absolute; bottom:-80px; left:-80px; width:280px; height:280px; border-radius:50%; background:rgba(255,255,255,.07); pointer-events:none; }
+
+    .logo-marca { display:inline-flex; align-items:center; gap:10px; margin-bottom:32px; }
+    .logo-marca .simbolo { width:44px; height:44px; background:var(--dourado); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Kalam',cursive; font-size:22px; color:var(--branco); }
+    .logo-marca span { font-family:'Kalam',cursive; font-size:22px; color:var(--branco); }
+
+    .hero-badge { display:inline-block; background:var(--dourado); color:var(--branco); font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:6px 18px; border-radius:100px; margin-bottom:22px; }
+
+    .hero h1 { font-family:'Kalam',cursive; font-size:clamp(30px,6vw,52px); color:var(--branco); line-height:1.15; max-width:720px; margin:0 auto 18px; }
+    .hero h1 em { font-style:normal; color:var(--dourado); }
+    .hero .sub { font-size:clamp(16px,2.5vw,19px); color:rgba(255,255,255,.85); max-width:560px; margin:0 auto 40px; line-height:1.65; font-weight:300; }
+
+    .hero-cta { display:inline-flex; flex-direction:column; align-items:center; gap:10px; }
+    .btn-hero { display:inline-block; background:var(--dourado); color:var(--branco); padding:17px 44px; border-radius:14px; font-family:'DM Sans',sans-serif; font-size:18px; font-weight:700; text-decoration:none; box-shadow:0 8px 28px rgba(0,0,0,.25); transition:transform .2s, box-shadow .2s; }
+    .btn-hero:hover { transform:translateY(-2px); box-shadow:0 12px 36px rgba(0,0,0,.3); }
+    .hero-garantia { font-size:13px; color:rgba(255,255,255,.7); }
+
+    /* ── PROVA SOCIAL ── */
+    .prova { background:var(--dourado-claro); border-top:3px solid var(--dourado); border-bottom:3px solid var(--dourado); padding:28px 24px; text-align:center; }
+    .prova p { font-size:16px; color:var(--roxo); font-weight:600; }
+    .prova span { color:var(--cinza); font-weight:400; }
+
+    /* ── SEÇÕES GENÉRICAS ── */
+    .section { max-width:880px; margin:0 auto; padding:70px 24px; }
+    .section-label { font-family:'Kalam',cursive; font-size:13px; color:var(--dourado); letter-spacing:.1em; text-transform:uppercase; text-align:center; margin-bottom:10px; }
+    .section h2 { font-family:'Kalam',cursive; font-size:clamp(26px,4vw,38px); color:var(--roxo); text-align:center; margin-bottom:48px; line-height:1.2; }
+
+    /* ── O QUE VOCÊ LEVA ── */
+    .leva-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+    @media(max-width:600px){ .leva-grid { grid-template-columns:1fr; } }
+    .leva-card { background:var(--branco); border-radius:16px; padding:26px 22px; border-left:4px solid var(--roxo); box-shadow:0 4px 20px rgba(123,45,139,.08); display:flex; gap:16px; align-items:flex-start; }
+    .leva-card .ic { font-size:28px; flex-shrink:0; }
+    .leva-card h3 { font-size:16px; font-weight:600; color:var(--roxo); margin-bottom:6px; }
+    .leva-card p { font-size:14px; color:#666; line-height:1.6; }
+
+    /* ── PRINTS / MOCKUPS ── */
+    .prints { background:var(--roxo); padding:70px 24px; }
+    .prints .inner { max-width:880px; margin:0 auto; }
+    .prints h2 { font-family:'Kalam',cursive; font-size:clamp(26px,4vw,38px); color:var(--branco); text-align:center; margin-bottom:48px; }
+    .prints-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+    @media(max-width:640px){ .prints-grid { grid-template-columns:1fr; } }
+
+    .print-card { background:rgba(255,255,255,.08); border:1px solid rgba(201,168,76,.3); border-radius:16px; padding:24px 20px; }
+    .print-card .print-img { width:100%; border-radius:10px; border:2px solid rgba(201,168,76,.4); margin-bottom:16px; background:var(--roxo-claro); display:flex; align-items:center; justify-content:center; min-height:160px; overflow:hidden; }
+    .print-card .print-img img { width:100%; border-radius:8px; display:block; }
+
+    /* Mockup visual quando não há imagem real */
+    .mockup-bv { background:var(--roxo-claro); min-height:160px; border-radius:10px; padding:20px; }
+    .mockup-bv .mb-title { font-family:'Kalam',cursive; font-size:15px; color:var(--roxo); text-align:center; font-weight:700; border-bottom:2px solid var(--dourado); padding-bottom:8px; margin-bottom:12px; }
+    .mockup-bv .mb-row { display:flex; justify-content:space-between; font-size:12px; padding:5px 0; border-bottom:1px solid rgba(123,45,139,.1); }
+    .mockup-bv .mb-row .label { color:var(--cinza); }
+    .mockup-bv .mb-row .val { color:var(--roxo); font-weight:600; }
+    .mockup-bv .mb-total { display:flex; justify-content:space-between; font-size:13px; font-weight:700; background:var(--roxo); color:var(--branco); padding:6px 8px; border-radius:6px; margin-top:8px; }
+
+    .print-card h3 { font-size:16px; font-weight:700; color:var(--branco); margin-bottom:6px; }
+    .print-card p { font-size:13px; color:rgba(255,255,255,.75); line-height:1.6; }
+
+    /* ── PARA QUEM É ── */
+    .para-quem { background:var(--cinza-suave); padding:70px 24px; }
+    .para-quem .inner { max-width:680px; margin:0 auto; text-align:center; }
+    .para-quem h2 { font-family:'Kalam',cursive; font-size:clamp(26px,4vw,36px); color:var(--roxo); margin-bottom:36px; }
+    .checks { display:flex; flex-direction:column; gap:14px; text-align:left; }
+    .check-item { display:flex; align-items:flex-start; gap:14px; background:var(--branco); border-radius:14px; padding:16px 20px; box-shadow:0 2px 12px rgba(123,45,139,.07); }
+    .check-item .ico { font-size:22px; flex-shrink:0; }
+    .check-item p { font-size:15px; color:var(--cinza); line-height:1.5; }
+    .check-item strong { color:var(--roxo); }
+
+    /* ── OBJEÇÕES ── */
+    .objecoes { max-width:720px; margin:0 auto; padding:70px 24px; }
+    .objecoes h2 { font-family:'Kalam',cursive; font-size:clamp(24px,4vw,34px); color:var(--roxo); text-align:center; margin-bottom:36px; }
+    .objecao { background:var(--branco); border-radius:14px; padding:22px 24px; margin-bottom:16px; box-shadow:0 2px 12px rgba(123,45,139,.07); border-left:4px solid var(--dourado); }
+    .objecao .pergunta { font-weight:700; color:var(--roxo); font-size:15px; margin-bottom:8px; }
+    .objecao .resposta { font-size:14px; color:#555; line-height:1.65; }
+
+    /* ── PREÇO ── */
+    .preco-section { background:var(--roxo); padding:70px 24px; text-align:center; }
+    .preco-section h2 { font-family:'Kalam',cursive; font-size:clamp(26px,4vw,38px); color:var(--branco); margin-bottom:12px; }
+    .preco-section .sub { font-size:16px; color:rgba(255,255,255,.8); margin-bottom:40px; }
+
+    .preco-card { background:var(--branco); border-radius:20px; max-width:460px; margin:0 auto; padding:40px 32px; box-shadow:0 24px 60px rgba(0,0,0,.25); }
+    .preco-card .produto-nome { font-family:'Kalam',cursive; font-size:20px; color:var(--roxo); margin-bottom:24px; }
+    .preco-card .inclusos { text-align:left; margin-bottom:28px; display:flex; flex-direction:column; gap:10px; }
+    .preco-card .incluso-item { display:flex; align-items:center; gap:10px; font-size:14px; color:var(--cinza); }
+    .preco-card .incluso-item::before { content:'✓'; color:var(--roxo); font-weight:700; font-size:16px; flex-shrink:0; }
+    .preco-card .de { font-size:14px; color:#999; text-decoration:line-through; margin-bottom:4px; }
+    .preco-card .por { font-family:'Kalam',cursive; font-size:48px; color:var(--roxo); line-height:1; margin-bottom:6px; }
+    .preco-card .parcelas { font-size:13px; color:#888; margin-bottom:28px; }
+    .btn-comprar { display:block; width:100%; background:var(--roxo); color:var(--branco); padding:17px; border-radius:14px; font-family:'DM Sans',sans-serif; font-size:17px; font-weight:700; text-decoration:none; text-align:center; transition:background .2s, transform .15s, box-shadow .2s; box-shadow:0 8px 24px rgba(123,45,139,.35); }
+    .btn-comprar:hover { background:var(--roxo-medio); transform:translateY(-2px); box-shadow:0 12px 32px rgba(123,45,139,.45); }
+    .garantia-texto { font-size:13px; color:#888; margin-top:16px; }
+
+    /* ── GARANTIA ── */
+    .garantia { max-width:640px; margin:0 auto; padding:60px 24px; text-align:center; }
+    .garantia .ico { font-size:56px; margin-bottom:20px; }
+    .garantia h2 { font-family:'Kalam',cursive; font-size:clamp(24px,4vw,34px); color:var(--roxo); margin-bottom:14px; }
+    .garantia p { font-size:15px; color:#555; line-height:1.7; }
+
+    /* ── CTA FINAL ── */
+    .cta-final { background:var(--dourado-claro); border-top:3px solid var(--dourado); padding:70px 24px; text-align:center; }
+    .cta-final h2 { font-family:'Kalam',cursive; font-size:clamp(26px,4vw,38px); color:var(--roxo); margin-bottom:12px; }
+    .cta-final p { font-size:16px; color:#666; margin-bottom:32px; max-width:480px; margin-left:auto; margin-right:auto; }
+    .btn-cta-final { display:inline-block; background:var(--roxo); color:var(--branco); padding:17px 44px; border-radius:14px; font-family:'DM Sans',sans-serif; font-size:17px; font-weight:700; text-decoration:none; box-shadow:0 8px 24px rgba(123,45,139,.35); transition:background .2s, transform .15s; }
+    .btn-cta-final:hover { background:var(--roxo-medio); transform:translateY(-2px); }
+
+    footer { background:var(--cinza); padding:28px 24px; text-align:center; }
+    footer p { font-size:13px; color:#888; }
+    footer a { color:var(--dourado); text-decoration:none; }
+
+    @media(max-width:600px){ .preco-card { padding:28px 20px; } }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="logo-marca">
+      <div class="simbolo">P</div>
+      <span>Prospera Delas</span>
+    </div>
+    <div class="hero-badge">✨ Planilha completa — ano inteiro</div>
+    <h1>Seu dinheiro <em>organizado</em><br>mês a mês, o ano todo</h1>
+    <p class="sub">Chega de recomeçar do zero todo mês. A Planilha Orçamento Pessoal Feminino 2026 te acompanha de janeiro a dezembro — com metas, painel anual e tudo calculado automaticamente.</p>
+    <div class="hero-cta">
+      <a href="https://pay.kiwify.com.br/VPrlpMA" class="btn-hero">📊 Quero minha planilha — R$ 47</a>
+      <span class="hero-garantia">🔒 Compra segura · 7 dias de garantia · Acesso imediato</span>
+    </div>
+  </section>
+
+  <!-- PROVA SOCIAL -->
+  <div class="prova">
+    <p>💜 Feita para mulheres que querem <span>parar de adivinhar e começar a controlar</span></p>
+  </div>
+
+  <!-- O QUE VOCÊ LEVA -->
+  <section class="section">
+    <p class="section-label">O que está incluso</p>
+    <h2>Tudo que você precisa para<br>organizar o ano inteiro</h2>
+    <div class="leva-grid">
+      <div class="leva-card">
+        <div class="ic">📅</div>
+        <div>
+          <h3>12 abas mensais completas</h3>
+          <p>Uma aba para cada mês do ano. Preencha sua renda, gastos fixos, variáveis e avulsos. A planilha calcula o saldo automaticamente.</p>
+        </div>
+      </div>
+      <div class="leva-card">
+        <div class="ic">📊</div>
+        <div>
+          <h3>Painel Anual 2026</h3>
+          <p>Visualize sua evolução mês a mês em um único painel. Veja o total economizado no ano, média mensal e o mês que você saiu melhor.</p>
+        </div>
+      </div>
+      <div class="leva-card">
+        <div class="ic">🎯</div>
+        <div>
+          <h3>Seção de Metas por mês</h3>
+          <p>Defina até 3 metas financeiras por mês. A planilha mostra automaticamente se você está no caminho — parcial ou conquistada.</p>
+        </div>
+      </div>
+      <div class="leva-card">
+        <div class="ic">🟡</div>
+        <div>
+          <h3>Células amarelas — só você preenche</h3>
+          <p>Preencha apenas os campos em amarelo. O resto — cálculos, totais, diferenças e saldos — a planilha resolve sozinha.</p>
+        </div>
+      </div>
+      <div class="leva-card">
+        <div class="ic">📱</div>
+        <div>
+          <h3>Funciona no celular</h3>
+          <p>Acesse pelo Google Sheets no celular ou computador. Preencha na hora que pagar uma conta, sem precisar lembrar depois.</p>
+        </div>
+      </div>
+      <div class="leva-card">
+        <div class="ic">♾️</div>
+        <div>
+          <h3>Acesso vitalício</h3>
+          <p>Pague uma vez e use para sempre. Receba atualizações futuras sem custo adicional. Sem mensalidade, sem surpresa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINTS -->
+  <section class="prints">
+    <div class="inner">
+      <h2>Veja como ela funciona<br>na prática</h2>
+      <div class="prints-grid">
+
+        <div class="print-card">
+          <div class="print-img">
+            <div class="mockup-bv" style="width:100%">
+              <div class="mb-title">Orçamento — Abril</div>
+              <div class="mb-row"><span class="label">Salário principal</span><span class="val">R$ 4.000,00</span></div>
+              <div class="mb-row"><span class="label">Aluguel</span><span class="val">R$ 2.000,00</span></div>
+              <div class="mb-row"><span class="label">Mercado</span><span class="val">R$ 800,00</span></div>
+              <div class="mb-row"><span class="label">Escola / Creche</span><span class="val">R$ 450,00</span></div>
+              <div class="mb-total"><span>Saldo do mês</span><span style="color:var(--dourado)">+R$ 750,00</span></div>
+            </div>
+          </div>
+          <h3>Aba mensal com orçado vs realizado</h3>
+          <p>Veja em tempo real a diferença entre o que você planejou gastar e o que realmente saiu. Sem surpresa no fim do mês.</p>
+        </div>
+
+        <div class="print-card">
+          <div class="print-img">
+            <div class="mockup-bv" style="width:100%">
+              <div class="mb-title">Painel Anual 2026</div>
+              <div class="mb-row"><span class="label">Jan — Saldo</span><span class="val" style="color:var(--roxo)">+R$ 620</span></div>
+              <div class="mb-row"><span class="label">Fev — Saldo</span><span class="val" style="color:var(--roxo)">+R$ 380</span></div>
+              <div class="mb-row"><span class="label">Mar — Saldo</span><span class="val" style="color:#e53935">-R$ 200</span></div>
+              <div class="mb-row"><span class="label">Abr — Saldo</span><span class="val" style="color:var(--roxo)">+R$ 750</span></div>
+              <div class="mb-total"><span>Total economizado</span><span style="color:var(--dourado)">R$ 1.550,00</span></div>
+            </div>
+          </div>
+          <h3>Painel Anual — visão completa</h3>
+          <p>Um único painel mostra sua evolução nos 12 meses. Você vê o total economizado no ano e o mês que teve melhor desempenho.</p>
+        </div>
+
+        <div class="print-card">
+          <div class="print-img">
+            <div class="mockup-bv" style="width:100%">
+              <div class="mb-title">Minhas Metas do Mês</div>
+              <div class="mb-row"><span class="label">Guardar R$ 300</span><span class="val" style="color:green">✓ Conquistada</span></div>
+              <div class="mb-row"><span class="label">Pagar cartão</span><span class="val" style="color:orange">Parcial: 60%</span></div>
+              <div class="mb-row"><span class="label">Meta 3</span><span class="val" style="color:#aaa">---</span></div>
+              <div style="height:12px"></div>
+            </div>
+          </div>
+          <h3>Metas mensais com status automático</h3>
+          <p>Defina o que quer conquistar no mês. A planilha mostra se você está no caminho — parcial, conquistada ou não iniciada.</p>
+        </div>
+
+        <div class="print-card">
+          <div class="print-img">
+            <div class="mockup-bv" style="width:100%">
+              <div class="mb-title">Aba de Boas-vindas</div>
+              <div style="font-size:12px; color:var(--cinza); line-height:1.7; padding:4px 0">
+                <p>1. Clique na aba do mês atual</p>
+                <p>2. Preencha sua renda e gastos orçados</p>
+                <p>3. Ao longo do mês, registre o realizado</p>
+                <p>4. Defina suas 3 metas do mês</p>
+                <p>5. Acompanhe o Painel Anual</p>
+              </div>
+              <div style="background:var(--dourado); color:white; font-size:11px; text-align:center; border-radius:6px; padding:6px; margin-top:8px;">Preencha apenas as células em AMARELO</div>
+            </div>
+          </div>
+          <h3>Instruções claras — sem complicação</h3>
+          <p>A aba de boas-vindas explica tudo em 5 passos simples. Você abre, lê uma vez e já sabe usar. Sem precisar de tutorial.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM É -->
+  <section class="para-quem">
+    <div class="inner">
+      <p class="section-label">Para quem é</p>
+      <h2>Essa planilha é pra você se...</h2>
+      <div class="checks">
+        <div class="check-item"><span class="ico">😮‍💨</span><p>Você chega no fim do mês sem entender onde foi o dinheiro — e <strong>começa do zero no mês seguinte</strong></p></div>
+        <div class="check-item"><span class="ico">📋</span><p>Já tentou anotar os gastos no papel ou no celular, mas <strong>desistiu porque era complicado demais</strong></p></div>
+        <div class="check-item"><span class="ico">🎯</span><p>Tem metas financeiras — guardar dinheiro, pagar dívida, viajar — mas <strong>nunca consegue acompanhar o progresso</strong></p></div>
+        <div class="check-item"><span class="ico">📊</span><p>Quer ter uma visão do <strong>ano inteiro</strong>, não só do mês atual</p></div>
+        <div class="check-item"><span class="ico">💜</span><p>Precisa de algo <strong>simples, visual e feito para a realidade de mulher brasileira</strong> — sem economês, sem complicação</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJEÇÕES -->
+  <section class="objecoes">
+    <h2>Suas dúvidas respondidas</h2>
+
+    <div class="objecao">
+      <p class="pergunta">❓ "Sou péssima com planilhas. Vou conseguir usar?"</p>
+      <p class="resposta">Sim. A planilha foi feita exatamente para quem nunca usou uma planilha financeira. Você preenche só as células em amarelo — o resto ela calcula sozinha. Sem fórmulas, sem complicação.</p>
+    </div>
+
+    <div class="objecao">
+      <p class="pergunta">❓ "Funciona no celular?"</p>
+      <p class="resposta">Funciona. É uma planilha Google Sheets — abre no app Planilhas Google, gratuito para Android e iPhone. Você pode preencher enquanto faz uma compra, em tempo real.</p>
+    </div>
+
+    <div class="objecao">
+      <p class="pergunta">❓ "Já estamos em abril. Ainda vale a pena comprar uma planilha 2026?"</p>
+      <p class="resposta">Vale muito. Você ainda tem 9 meses do ano pela frente. Começar agora significa ter dados reais para comparar mês a mês e encerrar 2026 com total controle — e entrar em 2027 preparada.</p>
+    </div>
+
+    <div class="objecao">
+      <p class="pergunta">❓ "R$ 47 não é caro para uma planilha?"</p>
+      <p class="resposta">Coloca na balança: R$ 47 uma única vez para organizar 12 meses da sua vida financeira. Se você evitar um único gasto desnecessário por mês, a planilha já se paga em 30 dias — e sobra.</p>
+    </div>
+
+    <div class="objecao">
+      <p class="pergunta">❓ "E se eu não gostar?"</p>
+      <p class="resposta">Você tem 7 dias de garantia total pela Kiwify. Se por qualquer motivo não gostar, é só pedir o reembolso — sem burocracia, sem pergunta.</p>
+    </div>
+  </section>
+
+  <!-- PREÇO -->
+  <section class="preco-section">
+    <h2>Invista no seu controle financeiro</h2>
+    <p class="sub">Uma vez. Sem mensalidade. Para o ano inteiro.</p>
+
+    <div class="preco-card">
+      <p class="produto-nome">📊 Planilha Orçamento Pessoal Feminino 2026</p>
+      <div class="inclusos">
+        <div class="incluso-item">12 abas mensais completas (Jan a Dez)</div>
+        <div class="incluso-item">Painel Anual com visão dos 12 meses</div>
+        <div class="incluso-item">Seção de metas com status automático</div>
+        <div class="incluso-item">Cálculos automáticos — só preencher o amarelo</div>
+        <div class="incluso-item">Funciona no celular e no computador</div>
+        <div class="incluso-item">Acesso vitalício + atualizações gratuitas</div>
+      </div>
+      <p class="de">De R$ 97</p>
+      <p class="por">R$ 47</p>
+      <p class="parcelas">ou 2x de R$ 24,50 sem juros</p>
+      <a href="https://pay.kiwify.com.br/VPrlpMA" class="btn-comprar">✨ Quero minha planilha agora</a>
+      <p class="garantia-texto">🔒 Compra 100% segura · Acesso imediato · 7 dias de garantia</p>
+    </div>
+  </section>
+
+  <!-- GARANTIA -->
+  <section class="garantia">
+    <div class="ico">🛡️</div>
+    <h2>Garantia de 7 dias</h2>
+    <p>Se por qualquer motivo você não ficar satisfeita, basta enviar um e-mail em até 7 dias após a compra e devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia. O risco é todo nosso.</p>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <h2>Pronta para virar o jogo<br>das suas finanças?</h2>
+    <p>Comece agora. Acesso imediato após a compra. Sem espera, sem complicação.</p>
+    <a href="https://pay.kiwify.com.br/VPrlpMA" class="btn-cta-final">📊 Quero minha planilha — R$ 47</a>
+  </section>
+
+  <footer>
+    <p>© 2026 Prospera Delas · <a href="https://instagram.com/prospera.delas" target="_blank">@prospera.delas</a> · Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>
