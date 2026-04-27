@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planilha Saída de Dívidas — Prospera Delas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --roxo: #7B2D8B;
+      --roxo-medio: #9B4DAB;
+      --roxo-claro: #F3E8F7;
+      --dourado: #C9A84C;
+      --dourado-claro: #FDF3D8;
+      --branco: #FFFFFF;
+      --cinza: #2D2D2D;
+      --cinza-suave: #F7F4FA;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cinza-suave); color: var(--cinza); overflow-x: hidden; }
+
+    /* ── HERO ── */
+    .hero { background: var(--roxo); position: relative; overflow: hidden; padding: 64px 24px 72px; text-align: center; }
+    .hero::before { content:''; position:absolute; top:-120px; right:-120px; width:420px; height:420px; border-radius:50%; background:rgba(201,168,76,.18); pointer-events:none; }
+    .hero::after  { content:''; position:absolute; bottom:-80px; left:-80px; width:280px; height:280px; border-radius:50%; background:rgba(255,255,255,.07); pointer-events:none; }
+
+    .logo-marca { display:inline-flex; align-items:center; gap:10px; margin-bottom:32px; }
+    .logo-marca .simbolo { width:44px; height:44px; background:var(--dourado); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Kalam',cursive; font-size:22px; color:var(--branco); }
+    .logo-marca span { font-family:'Kalam',cursive; font-size:22px; color:var(--branco); }
+
+    .hero-badge { display:inline-block; background:var(--dourado); color:var(--branco); font-size:13px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:6px 18px; border-radius:100px; margin-bottom:22px; }
+
+    .hero h1 { font-family:'Kalam',cursive; font-size:clamp(30px,6vw,52px); color:var(--branco); line-height:1.15; max-width:720px; margin:0 auto 18px; }
+    .hero h1 em { font-style:normal; color:var(--dourado); }
+    .hero .sub { font-size:clamp(16px,2.5vw,19px); color:rgba(255,255,255,.85); max-width:560px; margin:0 auto 40px; line-height:1.65; font-weight:300; }
+
+    .hero-cta { display:inline-flex; flex-direction:column; align-items:center; gap:10px; }
+    .btn-hero { display:inline-block; background:var(--dourado); color:var(--branco); padding:17px 44px; border-radius:14px; font-family:'DM Sans',sans-serif; font-size:18px; font-weight:700; text-decoration:none; box-shadow:0 8px 28px rgba(0,0,0,.25); transition:transform .2s, box-shadow .2s; }
+    .btn-hero:hover { transform:translateY(-2px); box-shadow:0 12px 36px rgba(0,0,0,.3); }
+    .hero-garantia { font-size:13px; color:rgba(255,255,255,.7); }
+
+    /* ── PROVA SOCIAL ── */
+    .prova { background:var(--dourado-claro); border-top:3px solid var(--dourado); border-bottom:3px solid var(--dourado); padding:28px 24px; text-align:center; }
+    .prova p { font-size:16px; color:var(--roxo); font-weight:600; }
+    .prova span { color:var(--cinza); font-weight:400; }
+
+    /* ── SEÇÕES GENÉRICAS ── */
+    .section { max-width:880px; margin:0 auto; padding:70px 24px; }
+    .section-label { font-family:'Kalam',cursive; font-size:13px; color:var(--dourado); letter-spacing:.1em; text-transform:uppercase; text-align:center; margin-bottom:10px; }
+    .section h2 { font-family:'Kalam',cursive; font-size:clamp(26px,4vw,38px); color:var(--roxo); text-align:center; margin-bottom:48px; line-height:1.2; }
+
+    /* ── O QUE VOCÊ LEVA ── */
+    .leva-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+    @media(max-width:600px){ .leva-grid { grid-template-columns:1fr; } }
+    .leva-card { background:var(--branco); border-radius:16px; padding:26px 22px; border-left:4px solid var(--roxo); box-shadow:0 4px 20px rgba(123,45,139,.08); display:flex; gap:16px; align-items:flex-start; }
+    .leva-card .ic { font-size:28px; flex-shrink:0; }
+    .leva-card h3 { font-size:16px; font-weight:600; color:var(--roxo); margin-bottom:6px; }
+    .leva-card p { font-size:14px; color:#666; line-height:1.6; }
+
+    /* ── PRINTS / MOCKUPS ── */
+    .prints { background:var(--roxo); padding:70px 24px; }
+    .prints .inner { max-width:880px; margin:0 auto; }
+    .prints h2 { font-family:'Kalam',cursive; font-size:clamp(26px,4vw,38px); color:var(--branco); text-align:center; margin-bottom:48px; }
+    .prints-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+    @media(max-width:640px){ .prints-grid { grid-template-columns:1fr; } }
+
+    .print-card { background:rgba(255,255,255,.08); border:1px solid rgba(201,168,76,.3); border-radius:16px; padding:24px 20px; }
+    .mockup-bv { background:var(--roxo-claro); min-height:160px; border-radius:10px; padding:20px; margin-bottom:16px; }
+    .mockup-bv .mb-title { font-family:'Kalam',cursive; font-size:15px; color:var(--roxo); text-align:center; font-weight:700; border-bottom:2px solid var(--dourado); padding-bottom:8px; margin-bottom:12px; }
+    .mockup-bv .mb-row { display:flex; justify-content:space-between; font-size:12px; padding:5px 0; border-bottom:1px solid rgba(123,45,139,.1); }
+    .mockup-bv .mb-row .label { color:var(--cinza); }
+    .mockup-bv .mb-row .val { color:var(--roxo); font-weight:600; }
+    .mockup-bv .mb-total { display:flex; justify-content:space-between; font-size:13px; font-weight:700; background:var(--roxo); color:var(--branco); padding:6px 8px; border-radius:6px; margin-top:8px; }
+
+    .print-card h3 { font-size:16px; font-weight:700; color:var(--branco); margin-bottom:6px; }
+    .print-card p { font-size:13px; color:rgba(255,255,255,.75); line-height:1.6; }
+
+    /* ── PARA QUEM É ── */
+    .para-quem { background:var(--cinza-suave); padding:70px 24px; }
+    .para-quem .inner { max-width:680px; margin:0 auto; text-align:center; }
+    .para-quem h2 { font-family:'Kalam',cursive; font-size:clamp(26px,4vw,36px); color:var(--roxo); margin-bottom:36px; }
+    .checks { display:flex; flex-direction:column; gap:14px; text-align:left; }
+    .check-item { display:flex; align-items:flex-start; gap:14px; background:var(--branco); border-radius:14px; padding:16px 20px; box-shadow:0 2px 12px rgba(123,45,139,.07); }
+    .check-item .ico { font-size:22px; flex-shrink:0; }
+    .check-item p { font-size:15px; color:var(--cinza); line-height:1.5; }
+    .check-item strong { color:var(--roxo); }
+
+    /* ── OBJEÇÕES ── */
+    .objecoes { max-width:720px; margin:0 auto; padding:70px 24px; }
+    .objecoes h2 { font-family:'Kalam',cursive; font-size:clamp(24px,4vw,34px); color:var(--roxo); text-align:center; margin-bottom:36px; }
+    .objecao { background:var(--branco); border-radius:14px; padding:22px 24px; margin-bottom:16px; box-shadow:0 2px 12px rgba(123,45,139,.07); border-left:4px solid var(--dourado); }
+    .objecao .pergunta { font-weight:700; color:var(--roxo); font-size:15px; margin-bottom:8px; }
+    .objecao .resposta { font-size:14px; color:#555; line-height:1.65; }
+
+    /* ── PREÇO ── */
+    .preco-section { background:var(--roxo); padding:70px 24px; text-align:center; }
+    .preco-section h2 { font-family:'Kalam',cursive; font-size:clamp(26px,4vw,38px); color:var(--branco); margin-bottom:12px; }
+    .preco-section .sub { font-size:16px; color:rgba(255,255,255,.8); margin-bottom:40px; }
+
+    .preco-card { background:var(--branco); border-radius:20px; max-width:460px; margin:0 auto; padding:40px 32px; box-shadow:0 24px 60px rgba(0,0,0,.25); }
+    .preco-card .produto-nome { font-family:'Kalam',cursive; font-size:20px; color:var(--roxo); margin-bottom:24px; }
+    .preco-card .inclusos { text-align:left; margin-bottom:28px; display:flex; flex-direction:column; gap:10px; }
+    .preco-card .incluso-item { display:flex; align-items:center; gap:10px; font-size:14px; color:var(--cinza); }
+    .preco-card .incluso-item::before { content:'✓'; color:var(--roxo); font-weight:700; font-size:16px; flex-shrink:0; }
+    .preco-card .de { font-size:14px; color:#999; text-decoration:line-through; margin-bottom:4px; }
+    .preco-card .por { font-family:'Kalam',cursive; font-size:48px; color:var(--roxo); line-height:1; margin-bottom:6px; }
+    .preco-card .parcelas { font-size:13px; color:#888; margin-bottom:28px; }
+    .btn-comprar { display:block; width:100%; background:var(--roxo); color:var(--branco); padding:17px; border-radius:14px; font-family:'DM Sans',sans-serif; font-size:17px; font-weight:700; text-decoration:none; text-align:center; transition:background .2s, transform .15s, box-shadow .2s; box-shadow:0 8px 24px rgba(123,45,139,.35); }
+    .btn-comprar:hover { background:var(--roxo-medio); transform:translateY(-2px); box-shadow:0 12px 32px rgba(123,45,139,.45); }
+    .garantia-texto { font-size:13px; color:#888; margin-top:16px; }
+
+    /* ── GARANTIA ── */
+    .garantia { max-width:640px; margin:0 auto; padding:60px 24px; text-align:center; }
+    .garantia .ico { font-size:56px; margin-bottom:20px; }
+    .garantia h2 { font-family:'Kalam',cursive; font-size:clamp(24px,4vw,34px); color:var(--roxo); margin-bottom:14px; }
+    .garantia p { font-size:15px; color:#555; line-height:1.7; }
+
+    /* ── CTA FINAL ── */
+    .cta-final { background:var(--dourado-claro); border-top:3px solid var(--dourado); padding:70px 24px; text-align:center; }
+    .cta-final h2 { font-family:'Kalam',cursive; font-size:clamp(26px,4vw,38px); color:var(--roxo); margin-bottom:12px; }
+    .cta-final p { font-size:16px; color:#666; margin-bottom:32px; max-width:480px; margin-left:auto; margin-right:auto; }
+    .btn-cta-final { display:inline-block; background:var(--roxo); color:var(--branco); padding:17px 44px; border-radius:14px; font-family:'DM Sans',sans-serif; font-size:17px; font-weight:700; text-decoration:none; box-shadow:0 8px 24px rgba(123,45,139,.35); transition:background .2s, transform .15s; }
+    .btn-cta-final:hover { background:var(--roxo-medio); transform:translateY(-2px); }
+
+    footer { background:var(--cinza); padding:28px 24px; text-align:center; }
+    footer p { font-size:13px; color:#888; }
+    footer a { color:var(--dourado); text-decoration:none; }
+
+    @media(max-width:600px){ .preco-card { padding:28px 20px; } }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="logo-marca">
+      <div class="simbolo">P</div>
+      <span>Prospera Delas</span>
+    </div>
+    <div class="hero-badge">💜 Método bola de neve + acompanhamento mês a mês</div>
+    <h1>Chega de pagar <em>juros</em><br>de dívida que nunca acaba</h1>
+    <p class="sub">A Planilha Saída de Dívidas organiza tudo que você deve, aplica o método bola de neve automaticamente e te acompanha mês a mês — dívida por dívida — até você estar livre.</p>
+    <div class="hero-cta">
+      <a href="https://pay.kiwify.com.br/LINK-SAIDA-DIVIDAS" class="btn-hero">💜 Quero sair das dívidas — R$ 37</a>
+      <span class="hero-garantia">🔒 Compra segura · 7 dias de garantia · Acesso imediato</span>
+    </div>
+  </section>
+
+  <!-- PROVA SOCIAL -->
+  <div class="prova">
+    <p>💜 Feita para mulheres que estão <span>cansadas de pagar o mínimo e ver a dívida crescer</span></p>
+  </div>
+
+  <!-- O QUE VOCÊ LEVA -->
+  <section class="section">
+    <p class="section-label">O que está incluso</p>
+    <h2>Tudo que você precisa para<br>montar seu plano de quitação</h2>
+    <div class="leva-grid">
+      <div class="leva-card">
+        <div class="ic">📋</div>
+        <div>
+          <h3>Aba "Minhas Dívidas" — até 10 dívidas</h3>
+          <p>Cadastre todas as suas dívidas — cartão, empréstimo, cheque especial, financiamento, familiar. A planilha define automaticamente a ordem certa pelo método bola de neve.</p>
+        </div>
+      </div>
+      <div class="leva-card">
+        <div class="ic">⚡</div>
+        <div>
+          <h3>Método bola de neve explicado e aplicado</h3>
+          <p>Você informa quanto a mais consegue pagar por mês. A planilha direciona esse valor extra para a menor dívida primeiro — acelerando a quitação automaticamente.</p>
+        </div>
+      </div>
+      <div class="leva-card">
+        <div class="ic">📅</div>
+        <div>
+          <h3>Aba "Acompanhamento" — mês a mês</h3>
+          <p>A cada mês, preencha só o quanto pagou. A planilha calcula o saldo antes, o saldo depois e as parcelas restantes — e avisa quando cada dívida estiver quitada.</p>
+        </div>
+      </div>
+      <div class="leva-card">
+        <div class="ic">🏆</div>
+        <div>
+          <h3>Aba "Resultado" — sua jornada completa</h3>
+          <p>Veja o total em dívidas, o total já pago, a economia gerada antecipando parcelas e a situação atual de cada dívida — tudo em um único painel.</p>
+        </div>
+      </div>
+      <div class="leva-card">
+        <div class="ic">💰</div>
+        <div>
+          <h3>Economia real calculada automaticamente</h3>
+          <p>Cada vez que você quita uma dívida antes do prazo, a planilha registra quanto você economizou em juros. Ver esse número cresce a motivação para continuar.</p>
+        </div>
+      </div>
+      <div class="leva-card">
+        <div class="ic">♾️</div>
+        <div>
+          <h3>Preencha só o AMARELO</h3>
+          <p>Igual às outras planilhas da Prospera Delas — você preenche só as células amarelas. O resto a planilha calcula sozinha. Sem fórmula, sem complicação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINTS -->
+  <section class="prints">
+    <div class="inner">
+      <h2>Veja como ela funciona<br>na prática</h2>
+      <div class="prints-grid">
+
+        <div class="print-card">
+          <div class="mockup-bv">
+            <div class="mb-title">Minhas Dívidas</div>
+            <div class="mb-row"><span class="label">Cartão de crédito</span><span class="val">Ordem 1</span></div>
+            <div class="mb-row"><span class="label">Empréstimo pessoal</span><span class="val">Ordem 2</span></div>
+            <div class="mb-row"><span class="label">Cheque especial</span><span class="val">Ordem 3</span></div>
+            <div class="mb-row"><span class="label">Financiamento</span><span class="val">Ordem 4</span></div>
+            <div class="mb-total"><span>Total em dívidas</span><span style="color:var(--dourado)">calculado ✓</span></div>
+          </div>
+          <h3>Cadastro de até 10 dívidas</h3>
+          <p>Informe nome, parcelas restantes e valor da parcela. A planilha calcula o saldo total e define automaticamente a ordem do método bola de neve.</p>
+        </div>
+
+        <div class="print-card">
+          <div class="mockup-bv">
+            <div class="mb-title">Acompanhamento — Mês a Mês</div>
+            <div class="mb-row"><span class="label">Quanto paguei</span><span class="val">🟡 você preenche</span></div>
+            <div class="mb-row"><span class="label">Saldo antes</span><span class="val">automático ✓</span></div>
+            <div class="mb-row"><span class="label">Saldo depois</span><span class="val">automático ✓</span></div>
+            <div class="mb-row"><span class="label">Parcelas restantes</span><span class="val">automático ✓</span></div>
+            <div class="mb-total"><span>Status</span><span style="color:var(--dourado)">Em andamento</span></div>
+          </div>
+          <h3>Acompanhamento mês a mês</h3>
+          <p>A cada mês você preenche só o valor que pagou. A planilha calcula todo o resto — saldo, parcelas e avisa quando a dívida estiver quitada.</p>
+        </div>
+
+        <div class="print-card">
+          <div class="mockup-bv">
+            <div class="mb-title">Resultado — Jornada Completa</div>
+            <div class="mb-row"><span class="label">Total em dívidas</span><span class="val">R$ 0,00</span></div>
+            <div class="mb-row"><span class="label">Total já pago</span><span class="val" style="color:green">R$ 0,00</span></div>
+            <div class="mb-row"><span class="label">Economia gerada</span><span class="val" style="color:green">R$ 0,00</span></div>
+            <div class="mb-row"><span class="label">Dívidas quitadas</span><span class="val">0 de 10</span></div>
+            <div class="mb-total"><span>Situação</span><span style="color:var(--dourado)">No começo 💜</span></div>
+          </div>
+          <h3>Painel de resultado completo</h3>
+          <p>Veja o total de dívidas, o quanto já pagou e a economia real gerada antecipando parcelas. A motivação de ver o progresso real é o que mantém você no caminho.</p>
+        </div>
+
+        <div class="print-card">
+          <div class="mockup-bv">
+            <div class="mb-title">Como funciona o método</div>
+            <div class="mb-row"><span class="label">1. Pague o mínimo</span><span class="val">em todas</span></div>
+            <div class="mb-row"><span class="label">2. Extra vai para</span><span class="val">menor dívida</span></div>
+            <div class="mb-row"><span class="label">3. Quando quitar</span><span class="val">soma na próxima</span></div>
+            <div class="mb-row"><span class="label">4. Bola de neve</span><span class="val">cresce! ⚡</span></div>
+            <div class="mb-total"><span>Resultado</span><span style="color:var(--dourado)">Livre mais rápido</span></div>
+          </div>
+          <h3>Método bola de neve na prática</h3>
+          <p>Você informa quanto a mais consegue pagar por mês. A planilha direciona esse valor para a menor dívida — e cada vez que uma quita, o valor liberado vai todo para a próxima.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM É -->
+  <section class="para-quem">
+    <div class="inner">
+      <p class="section-label">Para quem é</p>
+      <h2>Essa planilha é pra você se...</h2>
+      <div class="checks">
+        <div class="check-item"><span class="ico">😰</span><p>Você paga o <strong>mínimo do cartão todo mês</strong> e vê a dívida crescendo em vez de diminuir</p></div>
+        <div class="check-item"><span class="ico">😵</span><p>Tem <strong>várias dívidas ao mesmo tempo</strong> e não sabe qual atacar primeiro</p></div>
+        <div class="check-item"><span class="ico">📞</span><p>Quer negociar com o banco mas <strong>não sabe o que falar</strong> e tem medo de errar</p></div>
+        <div class="check-item"><span class="ico">📅</span><p>Precisa de uma <strong>data real</strong> para se planejar e não ficar só na esperança</p></div>
+        <div class="check-item"><span class="ico">💜</span><p>Quer um método <strong>simples e visual</strong> — sem planilha complicada, sem economês</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJEÇÕES -->
+  <section class="objecoes">
+    <h2>Suas dúvidas respondidas</h2>
+
+    <div class="objecao">
+      <p class="pergunta">❓ "Minha dívida é muito grande. Isso vai funcionar para mim?"</p>
+      <p class="resposta">Sim. O método bola de neve funciona independente do tamanho da dívida — ele é usado por pessoas com R$ 2.000 e por pessoas com R$ 200.000 em dívidas. O que muda é o tempo. A planilha acompanha você mês a mês até a última dívida ser quitada.</p>
+    </div>
+
+    <div class="objecao">
+      <p class="pergunta">❓ "Sou péssima com planilhas. Vou conseguir usar?"</p>
+      <p class="resposta">Sim. Você preenche só as células em amarelo — nome da dívida, parcelas restantes e valor da parcela. O resto a planilha calcula sozinha. É o mesmo padrão das outras planilhas da Prospera Delas: simples, visual e sem fórmula para mexer.</p>
+    </div>
+
+    <div class="objecao">
+      <p class="pergunta">❓ "E se eu não souber quanto a mais consigo pagar?"</p>
+      <p class="resposta">Coloque R$ 0 no campo de valor extra e a planilha já funciona — calculando o tempo de quitação só com as parcelas normais. Conforme sua situação melhorar, você aumenta o valor extra e a planilha recalcula automaticamente.</p>
+    </div>
+
+    <div class="objecao">
+      <p class="pergunta">❓ "R$ 37 não é caro para uma planilha?"</p>
+      <p class="resposta">O método bola de neve bem aplicado pode economizar centenas ou milhares de reais em juros. A planilha te acompanha dívida por dívida, mês a mês, e calcula essa economia em tempo real. É um investimento de R$ 37 que se paga na primeira dívida quitada.</p>
+    </div>
+
+    <div class="objecao">
+      <p class="pergunta">❓ "E se eu não gostar?"</p>
+      <p class="resposta">Você tem 7 dias de garantia total pela Kiwify. Se por qualquer motivo não gostar, é só pedir o reembolso — sem burocracia, sem pergunta.</p>
+    </div>
+  </section>
+
+  <!-- PREÇO -->
+  <section class="preco-section">
+    <h2>Invista na sua liberdade financeira</h2>
+    <p class="sub">Uma vez. Sem mensalidade. Para usar quantas vezes precisar.</p>
+
+    <div class="preco-card">
+      <p class="produto-nome">💜 Planilha Saída de Dívidas</p>
+      <div class="inclusos">
+        <div class="incluso-item">Aba "Minhas Dívidas" — cadastro de até 10 dívidas</div>
+        <div class="incluso-item">Ordem automática pelo método bola de neve</div>
+        <div class="incluso-item">Campo de valor extra mensal — acelera a quitação</div>
+        <div class="incluso-item">Aba "Acompanhamento" — registro mês a mês de cada dívida</div>
+        <div class="incluso-item">Aba "Resultado" — painel completo da jornada</div>
+        <div class="incluso-item">Economia total calculada automaticamente</div>
+        <div class="incluso-item">Preencha só o AMARELO — o resto a planilha calcula</div>
+        <div class="incluso-item">Funciona no celular e no computador — Google Sheets</div>
+        <div class="incluso-item">Acesso vitalício — pague uma vez, use para sempre</div>
+      </div>
+      <p class="de">De R$ 67</p>
+      <p class="por">R$ 37</p>
+      <p class="parcelas">ou 6x de R$ 6,80 no cartão</p>
+      <a href="https://pay.kiwify.com.br/LINK-SAIDA-DIVIDAS" class="btn-comprar">💜 Quero minha planilha agora</a>
+      <p class="garantia-texto">🔒 Compra 100% segura · Acesso imediato · 7 dias de garantia</p>
+    </div>
+  </section>
+
+  <!-- GARANTIA -->
+  <section class="garantia">
+    <div class="ico">🛡️</div>
+    <h2>Garantia de 7 dias</h2>
+    <p>Se por qualquer motivo você não ficar satisfeita, basta enviar um e-mail em até 7 dias após a compra e devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia. O risco é todo nosso.</p>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <h2>Pronta para ver a luz<br>no fim do túnel?</h2>
+    <p>Acesso imediato após a compra. Em menos de 10 minutos você já sabe a data em que vai ficar livre.</p>
+    <a href="https://pay.kiwify.com.br/LINK-SAIDA-DIVIDAS" class="btn-cta-final">💜 Quero sair das dívidas — R$ 37</a>
+  </section>
+
+  <footer>
+    <p>© 2026 Prospera Delas · <a href="https://instagram.com/prospera.delas" target="_blank">@prospera.delas</a> · Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>
