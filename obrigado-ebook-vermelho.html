@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obrigada pela compra — Prospera Delas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --roxo: #7B2D8B;
+      --roxo-medio: #9B4DAB;
+      --roxo-claro: #F3E8F7;
+      --dourado: #C9A84C;
+      --dourado-claro: #FDF3D8;
+      --branco: #FFFFFF;
+      --cinza: #2D2D2D;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--roxo); color: var(--branco); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px; text-align: center; overflow-x: hidden; }
+
+    body::before { content:''; position:fixed; top:-120px; right:-120px; width:420px; height:420px; border-radius:50%; background:rgba(201,168,76,.15); pointer-events:none; }
+    body::after { content:''; position:fixed; bottom:-80px; left:-80px; width:280px; height:280px; border-radius:50%; background:rgba(255,255,255,.06); pointer-events:none; }
+
+    .logo-marca { display:inline-flex; align-items:center; gap:10px; margin-bottom:40px; }
+    .logo-marca .simbolo { width:44px; height:44px; background:var(--dourado); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Kalam',cursive; font-size:22px; color:var(--branco); }
+    .logo-marca span { font-family:'Kalam',cursive; font-size:22px; color:var(--branco); }
+
+    .check-big { font-size:80px; margin-bottom:24px; animation: popIn .5s ease; }
+    @keyframes popIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+    h1 { font-family:'Kalam',cursive; font-size:clamp(32px,6vw,52px); color:var(--branco); margin-bottom:16px; line-height:1.15; }
+    h1 em { font-style:normal; color:var(--dourado); }
+
+    .sub { font-size:clamp(16px,2.5vw,19px); color:rgba(255,255,255,.85); max-width:520px; margin:0 auto 40px; line-height:1.65; font-weight:300; }
+
+    .instrucoes { background:rgba(255,255,255,.1); border:1px solid rgba(201,168,76,.3); border-radius:20px; padding:32px 28px; max-width:500px; width:100%; margin:0 auto 36px; text-align:left; }
+    .instrucoes h3 { font-family:'Kalam',cursive; font-size:20px; color:var(--dourado); margin-bottom:20px; text-align:center; }
+    .passo { display:flex; gap:14px; align-items:flex-start; margin-bottom:16px; }
+    .passo:last-child { margin-bottom:0; }
+    .passo .num { width:32px; height:32px; background:var(--dourado); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Kalam',cursive; font-size:16px; color:var(--branco); flex-shrink:0; }
+    .passo p { font-size:15px; color:rgba(255,255,255,.9); line-height:1.5; padding-top:4px; }
+    .passo strong { color:var(--dourado); }
+
+    .btn-download { display:inline-flex; align-items:center; gap:10px; background:var(--dourado); color:var(--branco); padding:17px 40px; border-radius:14px; font-family:'DM Sans',sans-serif; font-size:18px; font-weight:700; text-decoration:none; box-shadow:0 8px 28px rgba(0,0,0,.25); transition:transform .2s, box-shadow .2s; margin-bottom:12px; }
+    .btn-download:hover { transform:translateY(-2px); box-shadow:0 12px 36px rgba(0,0,0,.3); }
+
+    .aviso-drive { font-size:13px; color:rgba(255,255,255,.6); margin-bottom:40px; }
+
+    .upsell { background:rgba(255,255,255,.08); border:1px solid rgba(201,168,76,.35); border-radius:20px; padding:28px 28px; max-width:500px; width:100%; margin:0 auto; }
+    .upsell h3 { font-family:'Kalam',cursive; font-size:22px; color:var(--dourado); margin-bottom:12px; }
+    .upsell p { font-size:15px; color:rgba(255,255,255,.8); margin-bottom:20px; line-height:1.6; }
+    .btn-upsell { display:inline-block; background:var(--branco); color:var(--roxo); padding:14px 32px; border-radius:12px; font-weight:700; font-size:16px; text-decoration:none; transition:transform .15s, box-shadow .15s; }
+    .btn-upsell:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(0,0,0,.2); }
+
+    footer { margin-top:48px; font-size:13px; color:rgba(255,255,255,.5); }
+    footer a { color:var(--dourado); text-decoration:none; }
+
+    @media(max-width:600px) { .instrucoes { padding:24px 20px; } .upsell { padding:24px 20px; } }
+  </style>
+</head>
+<body>
+
+  <div class="logo-marca">
+    <div class="simbolo">P</div>
+    <span>Prospera Delas</span>
+  </div>
+
+  <div class="check-big">📖</div>
+
+  <h1>Seu e-book está pronto,<br><em>Mulher que Prospera!</em></h1>
+  <p class="sub">Parabéns pela decisão. Você acabou de dar o primeiro passo pra sair do vermelho — e isso já é mais do que a maioria faz. Agora é hora de ler e aplicar.</p>
+
+  <div class="instrucoes">
+    <h3>📥 Como acessar seu e-book</h3>
+    <div class="passo">
+      <div class="num">1</div>
+      <p>Clique no botão abaixo para <strong>baixar o PDF</strong> direto para o seu celular ou computador</p>
+    </div>
+    <div class="passo">
+      <div class="num">2</div>
+      <p>Se abrir no Google Drive, clique no <strong>ícone de download</strong> no canto superior direito para salvar</p>
+    </div>
+    <div class="passo">
+      <div class="num">3</div>
+      <p>Comece pela <strong>Carta de Boas-vindas</strong> — ela explica tudo que você vai precisar para os próximos 90 dias 💜</p>
+    </div>
+    <div class="passo">
+      <div class="num">4</div>
+      <p>Faça os <strong>exercícios ao final de cada capítulo</strong> — eles transformam leitura em ação real</p>
+    </div>
+  </div>
+
+  <a href="https://drive.google.com/uc?export=download&id=1uXhQmrMKgNxZrJ4JITvlBYGXgHdqCXvn" class="btn-download" target="_blank">
+    📥 Baixar meu e-book em PDF
+  </a>
+  <p class="aviso-drive">Se o download não iniciar automaticamente, clique em "Download" na tela do Google Drive</p>
+
+  <div class="upsell">
+    <h3>👇 Acelere seu plano com a planilha</h3>
+    <p>O e-book te ensina o método. A Planilha Saída de Dívidas aplica o método automaticamente — organiza suas dívidas, calcula a ordem de pagamento e te acompanha mês a mês até você estar livre.</p>
+    <a href="https://pay.kiwify.com.br/E5GDSFO" class="btn-upsell" target="_blank">
+      Ver Planilha Saída de Dívidas — R$ 37 💜
+    </a>
+  </div>
+
+  <footer>
+    <p>© 2026 Prospera Delas · <a href="https://instagram.com/prospera.delas" target="_blank">@prospera.delas</a> · Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>
