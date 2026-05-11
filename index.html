@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta name="p:domain_verify" content="9656cc36f5a8102e354c453c5f0d0063"/>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diagnóstico Financeiro Gratuito — Prospera Delas</title>
@@ -21,7 +20,6 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--cinza-suave); color: var(--cinza); overflow-x: hidden; }
 
-    /* HERO */
     .hero { background: var(--roxo); position: relative; overflow: hidden; padding: 70px 24px 80px; text-align: center; }
     .hero::before { content: ''; position: absolute; top: -120px; right: -120px; width: 420px; height: 420px; border-radius: 50%; background: rgba(201,168,76,.18); pointer-events: none; }
     .hero::after  { content: ''; position: absolute; bottom: -80px; left: -80px; width: 280px; height: 280px; border-radius: 50%; background: rgba(255,255,255,.07); pointer-events: none; }
@@ -29,14 +27,11 @@
     .logo-marca { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 36px; opacity: 0; animation: fadeUp .6s .1s forwards; }
     .logo-marca .simbolo { width: 44px; height: 44px; background: var(--dourado); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Kalam', cursive; font-size: 22px; color: var(--branco); }
     .logo-marca span { font-family: 'Kalam', cursive; font-size: 22px; color: var(--branco); }
-
     .hero-badge { display: inline-block; background: var(--dourado); color: var(--branco); font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 6px 18px; border-radius: 100px; margin-bottom: 24px; opacity: 0; animation: fadeUp .6s .2s forwards; }
-
     .hero h1 { font-family: 'Kalam', cursive; font-size: clamp(32px, 6vw, 54px); color: var(--branco); line-height: 1.15; max-width: 700px; margin: 0 auto 20px; opacity: 0; animation: fadeUp .6s .3s forwards; }
     .hero h1 em { font-style: normal; color: var(--dourado); }
     .hero p { font-size: clamp(16px, 2.5vw, 19px); color: rgba(255,255,255,.85); max-width: 540px; margin: 0 auto 44px; line-height: 1.65; font-weight: 300; opacity: 0; animation: fadeUp .6s .4s forwards; }
 
-    /* FORM */
     .form-wrap { max-width: 480px; margin: 0 auto; opacity: 0; animation: fadeUp .7s .5s forwards; }
     .form-card { background: var(--branco); border-radius: 20px; padding: 36px 32px; box-shadow: 0 24px 60px rgba(0,0,0,.22); }
     .form-card h2 { font-family: 'Kalam', cursive; font-size: 22px; color: var(--roxo); margin-bottom: 8px; text-align: center; }
@@ -46,22 +41,18 @@
     .field input { width: 100%; padding: 13px 16px; border: 1.5px solid #E0D4EC; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--cinza); outline: none; transition: border-color .2s, box-shadow .2s; background: #FDFAFF; }
     .field input:focus { border-color: var(--roxo); box-shadow: 0 0 0 3px rgba(123,45,139,.12); }
     .field input::placeholder { color: #BBA8CC; }
-
     .btn { width: 100%; padding: 15px; background: var(--roxo); color: var(--branco); border: none; border-radius: 12px; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; cursor: pointer; transition: background .2s, transform .15s, box-shadow .2s; margin-top: 8px; }
     .btn:hover { background: var(--roxo-medio); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(123,45,139,.35); }
     .btn:disabled { opacity: .7; cursor: not-allowed; transform: none; }
     .privacidade { font-size: 13px; color: var(--roxo); text-align: center; margin-top: 14px; font-weight: 600; }
-
     .social-proof { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; font-size: 13px; color: rgba(255,255,255,.75); }
     .avatares { display: flex; }
     .avatares span { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--roxo); margin-left: -8px; font-size: 14px; display: flex; align-items: center; justify-content: center; background: var(--roxo-claro); }
     .avatares span:first-child { margin-left: 0; }
 
-    /* SEÇÕES */
     .section { max-width: 860px; margin: 0 auto; padding: 70px 24px; }
     .section-label { font-family: 'Kalam', cursive; font-size: 13px; color: var(--dourado); letter-spacing: .1em; text-transform: uppercase; text-align: center; margin-bottom: 12px; }
     .section h2 { font-family: 'Kalam', cursive; font-size: clamp(26px, 4vw, 38px); color: var(--roxo); text-align: center; margin-bottom: 48px; line-height: 1.2; }
-
     .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     @media (max-width: 900px) { .cards { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 500px) { .cards { grid-template-columns: 1fr; } }
@@ -71,7 +62,6 @@
     .card h3 { font-size: 16px; font-weight: 600; color: var(--roxo); margin-bottom: 8px; }
     .card p { font-size: 14px; color: #666; line-height: 1.6; }
 
-    /* PARA QUEM É */
     .para-quem { background: var(--roxo); padding: 70px 24px; }
     .para-quem .inner { max-width: 700px; margin: 0 auto; text-align: center; }
     .para-quem h2 { font-family: 'Kalam', cursive; font-size: clamp(26px, 4vw, 36px); color: var(--branco); margin-bottom: 36px; }
@@ -80,7 +70,6 @@
     .check-item .ico { font-size: 20px; flex-shrink: 0; }
     .check-item p { font-size: 15px; color: rgba(255,255,255,.9); line-height: 1.5; }
 
-    /* CTA FINAL */
     .cta-final { background: var(--dourado-claro); padding: 70px 24px; text-align: center; border-top: 3px solid var(--dourado); }
     .cta-final h2 { font-family: 'Kalam', cursive; font-size: clamp(26px, 4vw, 38px); color: var(--roxo); margin-bottom: 12px; }
     .cta-final p { font-size: 16px; color: #666; margin-bottom: 32px; }
@@ -91,7 +80,6 @@
     footer p { font-size: 13px; color: #888; }
     footer a { color: var(--dourado); text-decoration: none; }
 
-    /* PÁGINA OBRIGADO */
     .obrigado { display: none; min-height: 100vh; background: var(--roxo); align-items: center; justify-content: center; text-align: center; padding: 40px 24px; flex-direction: column; }
     .obrigado.ativo { display: flex; }
     .obrigado .check-big { font-size: 72px; margin-bottom: 24px; }
@@ -142,7 +130,7 @@
             <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" required>
           </div>
           <button type="submit" class="btn">✨ Quero meu diagnóstico grátis</button>
-
+          <p class="privacidade">🔒 Seus dados estão seguros</p>
         </form>
       </div>
       <div class="social-proof">
@@ -192,29 +180,25 @@
 <div class="obrigado" id="pagina-obrigado">
   <div class="check-big">🎉</div>
   <h1>Chegou, <span id="nome-confirmacao">linda</span>!</h1>
-  <p>Sua planilha está pronta! Para usar, siga 2 passos:<br><br>
-  1. Clique no botão abaixo para abrir<br>
-  2. No Google Sheets, vá em <strong style="color:var(--dourado)">Arquivo → Fazer uma cópia</strong><br>Assim você terá a sua versão editável 💜</p>
-  <a href="https://docs.google.com/spreadsheets/d/1u4LwmZS23vHTC2gsl7WhDrU2FrZb5TGzFWTTXhMAnj4/edit?usp=sharing" class="btn-download" target="_blank">📊 Abrir minha planilha gratuita</a>
+  <p>Sua planilha de diagnóstico está pronta. Clique abaixo para acessar — e não esquece de fazer uma cópia para você no Google Sheets!</p>
+  <a href="https://docs.google.com/spreadsheets/d/1hKpUOfP9UR76XmBDgsWyUgG99OWQQiyVpLBXvH7wy4s" class="btn-download" target="_blank">📊 Acessar minha planilha gratuita</a>
   <div class="oferta-box">
     <h3>Próximo passo 👇</h3>
     <p>Agora que você sabe onde estão os ralos, que tal um plano para o ano inteiro? A Planilha Orçamento Pessoal te acompanha mês a mês.</p>
-    <!-- ⚠️ SUBSTITUA PELO LINK DO KIWIFY -->
-    <a href="https://prosperadelasoficial.github.io/prospera-delas/orcamento.html" class="btn-oferta" target="_blank">Ver Planilha Orçamento — R$ 47</a>
+    <a href="https://pay.kiwify.com.br/VPrlpMA" class="btn-oferta" target="_blank">Ver Planilha Orçamento — R$ 47</a>
   </div>
 </div>
 
 <script>
-  // ⚠️ SUBSTITUA PELA URL DE ACTION DO SEU FORMULÁRIO MAILCHIMP
-  // Encontre em: Audience > Signup forms > Embedded forms > copie o action=""
-  const MAILCHIMP_ACTION = 'https://gmail.us8.list-manage.com/subscribe/post?u=e750d5f91406fd1a70ba6bdc8&id=0f1a5b0159&f_id=00821be0f0';
+  // Cloudflare Worker — chave API protegida no servidor, nunca exposta aqui
+  const WORKER_URL = 'https://prospera-delas-brevo.prosperadelasoficial.workers.dev';
 
   const form = document.getElementById('form-captura');
   const paginaPrincipal = document.getElementById('pagina-principal');
   const paginaObrigado  = document.getElementById('pagina-obrigado');
   const nomeConfirmacao = document.getElementById('nome-confirmacao');
 
-  form.addEventListener('submit', function(e) {
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
 
     const nome     = document.getElementById('nome').value.trim();
@@ -230,24 +214,17 @@
     btn.textContent = 'Enviando...';
     btn.disabled = true;
 
-    // Envio para Mailchimp via JSONP (sem erro de CORS)
-    const url = MAILCHIMP_ACTION.replace('/post?', '/post-json?')
-      + '&FNAME=' + encodeURIComponent(nome)
-      + '&EMAIL=' + encodeURIComponent(email)
-      + '&PHONE=' + encodeURIComponent(whatsapp)
-      + '&c=_mc_callback';
+    try {
+      await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, email, whatsapp })
+      });
+    } catch (err) {
+      console.error('Erro:', err);
+    }
 
-    window._mc_callback = function() {
-      mostrarObrigado(nome);
-    };
-
-    const script = document.createElement('script');
-    script.src = url;
-    script.onerror = function() { mostrarObrigado(nome); };
-    document.body.appendChild(script);
-
-    // Fallback: se não responder em 4s, mostra obrigado mesmo assim
-    setTimeout(function() { mostrarObrigado(nome); }, 4000);
+    mostrarObrigado(nome);
   });
 
   function mostrarObrigado(nome) {
