@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obrigada pela compra — Kit Prospera</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --roxo: #7B2D8B;
+      --roxo-medio: #9B4DAB;
+      --roxo-claro: #F3E8F7;
+      --dourado: #C9A84C;
+      --dourado-claro: #FDF3D8;
+      --branco: #FFFFFF;
+      --cinza: #2D2D2D;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--roxo); color: var(--branco); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px; text-align: center; overflow-x: hidden; }
+
+    /* Círculos decorativos */
+    body::before { content:''; position:fixed; top:-120px; right:-120px; width:420px; height:420px; border-radius:50%; background:rgba(201,168,76,.15); pointer-events:none; }
+    body::after { content:''; position:fixed; bottom:-80px; left:-80px; width:280px; height:280px; border-radius:50%; background:rgba(255,255,255,.06); pointer-events:none; }
+
+    .container { position:relative; z-index:1; width:100%; max-width:540px; }
+
+    .logo-marca { display:inline-flex; align-items:center; gap:10px; margin-bottom:40px; }
+    .logo-marca .simbolo { width:44px; height:44px; background:var(--dourado); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Kalam',cursive; font-size:22px; color:var(--branco); }
+    .logo-marca span { font-family:'Kalam',cursive; font-size:22px; color:var(--branco); }
+
+    .check-big { font-size:80px; margin-bottom:24px; animation: popIn .5s ease; }
+    @keyframes popIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+    h1 { font-family:'Kalam',cursive; font-size:clamp(32px,6vw,52px); color:var(--branco); margin-bottom:16px; line-height:1.15; }
+    h1 em { font-style:normal; color:var(--dourado); }
+
+    .sub { font-size:clamp(16px,2.5vw,19px); color:rgba(255,255,255,.85); max-width:520px; margin:0 auto 40px; line-height:1.65; font-weight:300; }
+
+    /* Card de instruções */
+    .instrucoes { background:rgba(255,255,255,.1); border:1px solid rgba(201,168,76,.3); border-radius:20px; padding:32px 28px; max-width:540px; width:100%; margin:0 auto 36px; text-align:left; }
+    .instrucoes h3 { font-family:'Kalam',cursive; font-size:20px; color:var(--dourado); margin-bottom:20px; text-align:center; }
+    .passo { display:flex; gap:14px; align-items:flex-start; margin-bottom:16px; }
+    .passo:last-child { margin-bottom:0; }
+    .passo .num { width:32px; height:32px; background:var(--dourado); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Kalam',cursive; font-size:16px; color:var(--branco); flex-shrink:0; }
+    .passo p { font-size:15px; color:rgba(255,255,255,.9); line-height:1.5; padding-top:4px; }
+    .passo strong { color:var(--dourado); }
+
+    /* Cards das 3 planilhas */
+    .planilhas { display:flex; flex-direction:column; gap:16px; max-width:540px; width:100%; margin:0 auto 36px; }
+    .planilha-card { background:rgba(255,255,255,.1); border:1px solid rgba(201,168,76,.3); border-radius:18px; padding:22px 24px; text-align:left; position:relative; transition:transform .2s, border-color .2s; }
+    .planilha-card:hover { transform:translateY(-2px); border-color:rgba(201,168,76,.6); }
+    .planilha-card .ordem { position:absolute; top:-12px; left:20px; background:var(--dourado); color:var(--branco); width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Kalam',cursive; font-weight:700; font-size:15px; box-shadow:0 4px 12px rgba(0,0,0,.2); }
+    .planilha-card .topo { display:flex; align-items:center; gap:14px; margin-bottom:10px; padding-top:6px; }
+    .planilha-card .emoji { font-size:32px; flex-shrink:0; }
+    .planilha-card h4 { font-family:'Kalam',cursive; font-size:18px; color:var(--branco); margin-bottom:2px; line-height:1.2; }
+    .planilha-card .dica { font-size:12px; color:rgba(255,255,255,.65); }
+    .planilha-card p.desc { font-size:13px; color:rgba(255,255,255,.75); line-height:1.55; margin-bottom:16px; }
+    .btn-acessar { display:inline-flex; align-items:center; justify-content:center; gap:8px; width:100%; background:var(--dourado); color:var(--branco); padding:13px 20px; border-radius:11px; font-family:'DM Sans',sans-serif; font-size:15px; font-weight:700; text-decoration:none; box-shadow:0 6px 18px rgba(0,0,0,.2); transition:transform .15s, box-shadow .15s; }
+    .btn-acessar:hover { transform:translateY(-1px); box-shadow:0 8px 24px rgba(0,0,0,.25); }
+
+    /* Card de dica final */
+    .dica-final { background:rgba(255,255,255,.08); border:1px solid rgba(201,168,76,.25); border-radius:18px; padding:24px 26px; max-width:540px; width:100%; margin:0 auto; }
+    .dica-final h3 { font-family:'Kalam',cursive; font-size:20px; color:var(--dourado); margin-bottom:10px; }
+    .dica-final p { font-size:14px; color:rgba(255,255,255,.8); line-height:1.6; }
+    .dica-final strong { color:var(--dourado); font-weight:600; }
+    .dica-final a { color:var(--dourado); text-decoration:none; font-weight:600; }
+
+    footer { margin-top:48px; font-size:13px; color:rgba(255,255,255,.5); position:relative; z-index:1; }
+    footer a { color:var(--dourado); text-decoration:none; }
+
+    @media(max-width:600px) {
+      .instrucoes { padding:24px 20px; }
+      .planilha-card { padding:22px 20px; }
+      .dica-final { padding:22px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="logo-marca">
+      <div class="simbolo">P</div>
+      <span>Prospera Delas</span>
+    </div>
+
+    <div class="check-big">🎉</div>
+
+    <h1>Compra confirmada,<br><em>Mulher que Prospera!</em></h1>
+    <p class="sub">Seu Kit Prospera está pronto. As 3 planilhas — Orçamento, Saída de Dívidas e Reserva de Emergência — já estão disponíveis abaixo. 💜</p>
+
+    <!-- INSTRUÇÕES UNIVERSAIS -->
+    <div class="instrucoes">
+      <h3>📋 Como acessar suas planilhas</h3>
+      <div class="passo">
+        <div class="num">1</div>
+        <p>Clique no botão de cada planilha abaixo para <strong>abrir no Google Sheets</strong></p>
+      </div>
+      <div class="passo">
+        <div class="num">2</div>
+        <p>Na planilha aberta, clique em <strong>Arquivo → Fazer uma cópia</strong> — isso cria a sua versão editável</p>
+      </div>
+      <div class="passo">
+        <div class="num">3</div>
+        <p>Comece preenchendo as <strong>células AMARELAS</strong> — o resto a planilha calcula sozinha</p>
+      </div>
+      <div class="passo">
+        <div class="num">4</div>
+        <p>Repita o processo para as 3 planilhas — uma de cada vez, na ordem recomendada abaixo 💜</p>
+      </div>
+    </div>
+
+    <!-- AS 3 PLANILHAS -->
+    <div class="planilhas">
+
+      <div class="planilha-card">
+        <div class="ordem">1</div>
+        <div class="topo">
+          <div class="emoji">📊</div>
+          <div>
+            <h4>Planilha Orçamento Pessoal Feminino 2026</h4>
+            <span class="dica">Comece por essa — base de tudo</span>
+          </div>
+        </div>
+        <p class="desc">Organize o que entra, o que sai e o que sobra — mês a mês. Em 7 dias você já tem clareza total do seu dinheiro.</p>
+        <a href="https://docs.google.com/spreadsheets/d/1injwmZSQwTypRKG3vUsPsITVW8uXsHWjtMvCFiWpQgQ/edit?usp=sharing" class="btn-acessar" target="_blank">
+          📊 Acessar Planilha Orçamento
+        </a>
+      </div>
+
+      <div class="planilha-card">
+        <div class="ordem">2</div>
+        <div class="topo">
+          <div class="emoji">💜</div>
+          <div>
+            <h4>Planilha Saída de Dívidas</h4>
+            <span class="dica">Aplique depois que o orçamento estiver rodando</span>
+          </div>
+        </div>
+        <p class="desc">Cadastre suas dívidas e a planilha aplica o método bola de neve automaticamente — quitando uma de cada vez.</p>
+        <a href="https://docs.google.com/spreadsheets/d/1c4tvcqQfBIgDV1RkT4ykdjMj4i9lxfcbeeIe8oZqKmI/edit?usp=sharing" class="btn-acessar" target="_blank">
+          💜 Acessar Planilha Saída de Dívidas
+        </a>
+      </div>
+
+      <div class="planilha-card">
+        <div class="ordem">3</div>
+        <div class="topo">
+          <div class="emoji">🛡️</div>
+          <div>
+            <h4>Planilha Reserva de Emergência</h4>
+            <span class="dica">Quando já estiver com fôlego no orçamento</span>
+          </div>
+        </div>
+        <p class="desc">Calcule sua reserva ideal, simule cenários de quanto guardar por mês e acompanhe o saldo crescer por 3 anos.</p>
+        <a href="https://docs.google.com/spreadsheets/d/15dPvpj6ieNs5kOQpM6t24I7gY96nY6wAxjP_mFGY7l8/edit?usp=sharing" class="btn-acessar" target="_blank">
+          🛡️ Acessar Planilha Reserva de Emergência
+        </a>
+      </div>
+
+    </div>
+
+    <!-- DICA FINAL -->
+    <div class="dica-final">
+      <h3>💡 Dica da Prospera</h3>
+      <p>Salve esta página nos favoritos do seu celular — assim você acessa as 3 planilhas a qualquer hora. Dúvida sobre como usar? Me chama lá no Instagram <a href="https://instagram.com/prospera.delas" target="_blank">@prospera.delas</a> 💜</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 Prospera Delas · <a href="https://instagram.com/prospera.delas" target="_blank">@prospera.delas</a> · Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>
